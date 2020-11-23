@@ -119,8 +119,9 @@ public class GamePanel extends JPanel implements KeyListener,MouseListener,Mouse
 	
 	}	
 	private void update()
-	{		
-		if(musicLine.contains(x-9, y-30) && leftButtonPressed  && !pressedButton.isRunning() && !endedGame)		// dolozyc obsluge przycisku MUSIC
+	{	
+		// dolozyc obsluge przycisku MUSIC
+		if(musicLine.contains(x-9, y-30) && leftButtonPressed  && !pressedButton.isRunning() && !endedGame)		
 		{
 			pressedButton.start();
 
@@ -195,7 +196,7 @@ public class GamePanel extends JPanel implements KeyListener,MouseListener,Mouse
 			{
 				if(nextBlock.getCoords()[row][col] != 0)
 				{
-					g.drawImage(nextBlock.getKostka(), col*30 + 320, row*30 + 50, null);	
+					g.drawImage(nextBlock.getCube(), col*30 + 320, row*30 + 50, null);	
 				}
 			}		
 		}
@@ -238,11 +239,12 @@ public class GamePanel extends JPanel implements KeyListener,MouseListener,Mouse
 		g.setColor(Color.WHITE);		
 		g.setFont(new Font("Georgia", Font.BOLD, 20));		
 		g.drawString("Punkty", GameWindow.WIDTH - 125, GameWindow.HEIGHT/2);
-		g.drawString(points+"", GameWindow.WIDTH - 125, GameWindow.HEIGHT/2 + 30);				// todo rysuje kratke odtad
+		g.drawString(points+"", GameWindow.WIDTH - 125, GameWindow.HEIGHT/2 + 30);
 		
+		// todo rysuje kratke odtad
 		Graphics2D g2d = (Graphics2D)g;		
 		g2d.setStroke(new BasicStroke(1));
-		g2d.setColor(new Color(0, 0, 0, 100));  //todo 0 0 0 100
+		g2d.setColor(new Color(0, 0, 0, 100));
 		
 		for(int i = 0; i <= gamePanelHeight; i++)
 		{
@@ -250,13 +252,16 @@ public class GamePanel extends JPanel implements KeyListener,MouseListener,Mouse
 		}
 		for(int j = 0; j <= gamePanelWidth; j++)
 		{
-			g2d.drawLine(j*blockSize, 0, j*blockSize, gamePanelHeight*30);				// todo rysuje kratke dotad
+			g2d.drawLine(j*blockSize, 0, j*blockSize, gamePanelHeight*30);				
 		}
+		
+		// todo rysuje kratke dotad
+		
 	}
 	public void setNextBlock() 
 	{
 		int index=(int)(Math.random()*shape.length);
-		nextBlock=new Block(shape[index].getCoords(), shape[index].getKostka(),
+		nextBlock=new Block(shape[index].getCoords(), shape[index].getCube(),
 				this, shape[index].getColour());		
 	}
 	
@@ -295,9 +300,10 @@ public class GamePanel extends JPanel implements KeyListener,MouseListener,Mouse
 		loop.stop();
 	}
 	
+	// przyspieszanie gry, 300 wystarczy
 	public void addScore() {
 		points++;
-		Block.normal = 250 - points;			//TODO przyspieszanie gry, 300 wystarczy
+		Block.normal = 250 - points;			
 	}
 	
 	public void startGame()

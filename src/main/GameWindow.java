@@ -1,5 +1,7 @@
 package main;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.Window;
 import java.io.IOException;
 
@@ -17,6 +19,8 @@ public class GameWindow {
 	public GameWindow() 
 	{
 		window=new JFrame("Tetris");
+		Image icon = Toolkit.getDefaultToolkit().getImage("C:/temper/icon2.png");
+        window.setIconImage(icon);
 		window.setSize(WIDTH, HEIGHT);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLocationRelativeTo(null);
@@ -41,12 +45,10 @@ public class GameWindow {
 	
 	
 	
-	
-	
-	
-	
-	
 	public static void main(String[] args)  {
 		new GameWindow();		
 	}		
 }
+
+
+

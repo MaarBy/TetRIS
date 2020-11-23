@@ -201,7 +201,7 @@ private int[][] reverseRows(int[][] pattern){
 	public void setCoords(int[][] coords) {
 		this.coordinates = coords;
 	}
-	public BufferedImage getKostka() {
+	public BufferedImage getCube() {
 		return square;
 	}
 	public void setBlock(BufferedImage block) {
